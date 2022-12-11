@@ -1,0 +1,175 @@
+stages:
+    - Build
+    # - SonarScanner
+    # - SonarQualityGate
+    - Artifacts
+    - UnitTest
+    - DockerBuild
+    - Deploy
+
+Build:
+    stage: Build
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    tags:
+        - DevOps
+    script:
+        - echo 'dotnet restore'
+        - dotnet restore ./Services.sln 
+        - echo 'dotnet build'
+        - dotnet build ./Services.sln --configuration Release --no-restore
+
+Publish_Artifacts_Core:
+    stage: Artifacts
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    tags:
+        - DevOps
+    script: 
+        - echo 'dotnet publish'
+        - dotnet publish ./Services/Services.csproj --configuration Release
+    artifacts:
+        name: "Service.Core_$CI_BUILD_ID"
+        paths:
+            - "Services/bin/Release/net6.0/publish"
+    dependencies:
+        - Build
+    when: manual
+
+Publish_Artifacts_Auth:
+    stage: Artifacts
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    tags:
+        - DevOps
+    script: 
+        - echo 'dotnet publish'
+        - dotnet publish ./Security/Security.csproj --configuration Release
+    artifacts:
+        name: "Service.Auth_$CI_BUILD_ID"
+        paths:
+            - "Security/bin/Release/net6.0/publish"
+    dependencies:
+        - Build
+    when: manual
+
+UnitTest:
+    stage: UnitTest
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    tags:
+        - DevOps
+    script: 
+        - dotnet restore ./Services.sln 
+        - dotnet test -c Release ./UnitTest/UnitTest.csproj 
+            /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura" /p:CoverletOutput="./TestResults/"
+            /p:Exclude="*GenericAlpha.Repository*%2c*GenericAlpha.DataAccess.*" --logger trx --results-directory ./testresults
+        # - dotnet build-server shutdown
+        # - dotnet sonarscanner begin 
+        #     /k:"$SONAR_KEY" 
+        #     /d:sonar.login="$SONAR_USER" 
+        #     /d:sonar.password="$SONAR_PASSWORD" 
+        #     /d:sonar.host.url=$SONAR_URL
+        #     /d:sonar.cs.opencover.reportsPaths="GenericAlpha.Test/coverage.opencover.xml"
+        #     /d:sonar.coverage.exclusions="
+        #         GenericAlpha.DataAccess/**/*,
+        #         GenericAlpha.Seguridad.Api/**/*,
+        #         GenericAlpha.Archivos.Api/**/*,
+        #         GenericAlpha.Buros.Api/**/*,
+        #         GenericAlpha.CheckManager.Api/**/*,
+        #         GenericAlpha.Cobranzas.Api/**/*,
+        #         GenericAlpha.ListasRestrictivas.Api/**/*,
+        #         GenericAlpha.Notificaciones.Api/**/*,
+        #         GenericAlpha.Storage.API/**/*,
+        #         GenericAlpha.Tesoreria.Api/**/*,
+        #         GenericAlpha.Proxy/**/*,
+        #         GenericAlpha.CloudConnection/**/*"
+        # - dotnet build ./ApiGenericAlpha.sln
+        # - dotnet sonarscanner end  /d:sonar.login="$SONAR_USER" /d:sonar.password="$SONAR_PASSWORD"
+        # - $process = (Get-Process -Name 'dotnet' -ErrorAction SilentlyContinue).ProcessName
+        # - if ($process) { taskkill /IM "dotnet.exe" /F } else { echo 'Process not running'}
+    # dependencies:
+    #     - Build
+
+DockerBuild_Core:
+    image: docker:latest
+    services:
+        - docker:dind
+    tags:
+        - DevOps
+    stage: DockerBuild
+    script: 
+        - sh dockerbuild.sh "${CORE_AWS_ECR_REPOSITORY_URL}" "develop" "${AWS_DEFAULT_REGION}" "DockerfileCore"
+    dependencies:
+        - Build
+        - UnitTest
+
+DockerBuild_Auth:
+    image: docker:latest
+    services:
+        - docker:dind
+    tags:
+        - DevOps
+    stage: DockerBuild
+    script: 
+        - sh dockerbuild.sh "${AUTH_AWS_ECR_REPOSITORY_URL}" "develop" "${AWS_DEFAULT_REGION}" "DockerfileAuth"
+    dependencies:
+        - Build
+        - UnitTest
+
+# SonarScanner:
+#     stage: SonarScanner
+#     image: mcr.microsoft.com/dotnet/sdk:5.0
+#     variables:
+#         SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+#         GIT_DEPTH: "0"
+#     cache:
+#         key: "${CI_JOB_NAME}"
+#         paths:
+#         - .sonar/cache
+#     tags:
+#         - Runner-Gitlab
+#     script: 
+#         - "apt-get update"
+#         - "apt-get install --yes openjdk-11-jre"
+#         - "dotnet tool install --global dotnet-sonarscanner"
+#         - "export PATH=\"$PATH:$HOME/.dotnet/tools\""
+#         - "dotnet sonarscanner begin /k:\"$SONAR_KEY\" /d:sonar.login=\"$SONAR_TOKEN\" /d:\"sonar.host.url=$SONAR_HOST_URL\" "
+#         - "dotnet build"
+#         - "dotnet sonarscanner end /d:sonar.login=\"$SONAR_TOKEN\""
+#     only:
+#         - master
+
+# Sonar_Quality_Gate:
+#     stage: SonarQualityGate
+#     image:
+#         name: amazon/aws-cli
+#         entrypoint: [""] 
+#     tags:
+#         - Runner-Gitlab
+#     script:
+#         - echo 'sonar get quality'
+#         - source SonarQuality.sh
+#     only:
+#         - master
+
+
+Deploy_Container_Core:
+    image:
+        name: amazon/aws-cli
+        entrypoint: [""] 
+    tags:
+        - DevOps
+    stage: Deploy
+    script: 
+        - sh ecs_deploy.sh "develop" "${ECS_CORE_SERVICE}" "${ECS_CLUSTER}" "${AWS_DEFAULT_REGION}"
+    dependencies:
+        - DockerBuild_Core
+
+Deploy_Container_Auth:
+    image:
+        name: amazon/aws-cli
+        entrypoint: [""] 
+    tags:
+        - DevOps
+    stage: Deploy
+    script: 
+        - sh ecs_deploy.sh "develop" "${ECS_AUTH_SERVICE}" "${ECS_CLUSTER}" "${AWS_DEFAULT_REGION}"
+    dependencies:
+        - DockerBuild_Auth
