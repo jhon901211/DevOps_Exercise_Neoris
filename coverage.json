@@ -1,0 +1,609 @@
+{
+  "Business.dll": {
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Business.Security\\DevOps.cs": {
+      "Business.DevOps": {
+        "Utilities.Response.ModelResponse`1<System.Boolean> Business.DevOps::SendMessage(Entities.RequestMessage)": {
+          "Lines": {
+            "16": 6,
+            "18": 6,
+            "19": 6,
+            "20": 1,
+            "21": 5,
+            "22": 3,
+            "23": 2,
+            "24": 1,
+            "25": 1,
+            "26": 0,
+            "28": 1,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "34": 6
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 8,
+              "EndOffset": 10,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 8,
+              "EndOffset": 26,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 5
+            },
+            {
+              "Line": 21,
+              "Offset": 39,
+              "EndOffset": 41,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 3
+            },
+            {
+              "Line": 21,
+              "Offset": 39,
+              "EndOffset": 54,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 23,
+              "Offset": 67,
+              "EndOffset": 69,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 23,
+              "Offset": 67,
+              "EndOffset": 82,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 1
+            },
+            {
+              "Line": 25,
+              "Offset": 97,
+              "EndOffset": 99,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 25,
+              "Offset": 97,
+              "EndOffset": 112,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void Business.DevOps::.ctor()": {
+          "Lines": {
+            "10": 6,
+            "11": 6,
+            "14": 6
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Business.Security\\Authentication.cs": {
+      "Business.Security.Authentication": {
+        "Utilities.Response.ModelResponse`1<System.Boolean> Business.Security.Authentication::GenerateToken(System.String,System.String)": {
+          "Lines": {
+            "12": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "36": 0
+          },
+          "Branches": [
+            {
+              "Line": 15,
+              "Offset": 10,
+              "EndOffset": 12,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 15,
+              "Offset": 10,
+              "EndOffset": 28,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 17,
+              "Offset": 36,
+              "EndOffset": 38,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 17,
+              "Offset": 36,
+              "EndOffset": 51,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 67,
+              "EndOffset": 69,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 67,
+              "EndOffset": 87,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 90,
+              "EndOffset": 92,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 90,
+              "EndOffset": 142,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Business.Security\\BaseBusiness.cs": {
+      "Business.Security.BaseBusiness": {
+        "Utilities.Security.ITokenManager Business.Security.BaseBusiness::get_TokenManager()": {
+          "Lines": {
+            "11": 6
+          },
+          "Branches": []
+        },
+        "System.Void Business.Security.BaseBusiness::.ctor()": {
+          "Lines": {
+            "17": 6,
+            "19": 6,
+            "20": 6,
+            "21": 6
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Business.Interface.dll": {},
+  "Entities.dll": {
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Entities\\RequestMessage.cs": {
+      "Entities.RequestMessage": {
+        "System.String Entities.RequestMessage::get_Message()": {
+          "Lines": {
+            "10": 4
+          },
+          "Branches": []
+        },
+        "System.String Entities.RequestMessage::get_To()": {
+          "Lines": {
+            "11": 8
+          },
+          "Branches": []
+        },
+        "System.String Entities.RequestMessage::get_From()": {
+          "Lines": {
+            "12": 3
+          },
+          "Branches": []
+        },
+        "System.Int32 Entities.RequestMessage::get_TimeToLifeSec()": {
+          "Lines": {
+            "13": 1
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Utilities.dll": {
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Utilities\\Security\\DataToken.cs": {
+      "Utilities.Security.DataToken": {
+        "System.String Utilities.Security.DataToken::get_ApiKey()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Utilities\\Security\\TokenFactory.cs": {
+      "Utilities.Security.TokenFactory": {
+        "Utilities.Security.ITokenManager Utilities.Security.TokenFactory::CreateManager(System.Int32,System.String)": {
+          "Lines": {
+            "20": 6,
+            "21": 6,
+            "22": 1,
+            "23": 1,
+            "24": 1,
+            "26": 6,
+            "27": 6
+          },
+          "Branches": [
+            {
+              "Line": 21,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 21,
+              "Offset": 11,
+              "EndOffset": 27,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            }
+          ]
+        },
+        "System.Void Utilities.Security.TokenFactory::.ctor()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Utilities\\Security\\TokenManager.cs": {
+      "Utilities.Security.TokenManager": {
+        "Utilities.Secutity.AuthorizationToken Utilities.Security.TokenManager::GenerateToken(Utilities.Security.DataToken)": {
+          "Lines": {
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0
+          },
+          "Branches": []
+        },
+        "System.String Utilities.Security.TokenManager::GenerateRefreshToken()": {
+          "Lines": {
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0
+          },
+          "Branches": []
+        },
+        "Utilities.Secutity.AuthorizationToken Utilities.Security.TokenManager::GenerateTokenServertoServer(System.String,System.String,System.Int32,System.Int32)": {
+          "Lines": {
+            "67": 0,
+            "68": 0
+          },
+          "Branches": []
+        },
+        "System.Void Utilities.Security.TokenManager::.ctor(System.Int32,System.String)": {
+          "Lines": {
+            "23": 1,
+            "24": 1,
+            "25": 1,
+            "26": 1,
+            "27": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Utilities\\Security\\AuthorizationToken.cs": {
+      "Utilities.Secutity.AuthorizationToken": {
+        "System.String Utilities.Secutity.AuthorizationToken::get_TipoToken()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.String Utilities.Secutity.AuthorizationToken::get_TokenAcceso()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.String Utilities.Secutity.AuthorizationToken::get_TokenRenovacion()": {
+          "Lines": {
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Utilities.Secutity.AuthorizationToken::get_TiempoExpiracion()": {
+          "Lines": {
+            "28": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Utilities\\Response\\ManagerResponse.cs": {
+      "Utilities.Response.ManagerResponse`1": {
+        "Utilities.Response.ModelResponse`1<T> Utilities.Response.ManagerResponse`1::ResponseError(System.String)": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0
+          },
+          "Branches": []
+        },
+        "Utilities.Response.ModelResponse`1<T> Utilities.Response.ManagerResponse`1::ResponseUnauthorized(System.String)": {
+          "Lines": {
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0
+          },
+          "Branches": []
+        },
+        "Utilities.Response.ModelResponse`1<T> Utilities.Response.ManagerResponse`1::ResponseOk(System.String)": {
+          "Lines": {
+            "58": 2,
+            "59": 2,
+            "60": 2,
+            "61": 2,
+            "62": 2,
+            "63": 2,
+            "64": 2,
+            "65": 2,
+            "66": 2,
+            "67": 2
+          },
+          "Branches": []
+        },
+        "Utilities.Response.ModelResponse`1<T> Utilities.Response.ManagerResponse`1::ResponseOk(System.String,Utilities.Secutity.AuthorizationToken)": {
+          "Lines": {
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0
+          },
+          "Branches": []
+        },
+        "Utilities.Response.ModelResponse`1<T> Utilities.Response.ManagerResponse`1::ResponseInternalServerError(System.String)": {
+          "Lines": {
+            "93": 5,
+            "94": 5,
+            "95": 5,
+            "96": 5,
+            "97": 5,
+            "98": 5,
+            "99": 5,
+            "100": 5,
+            "101": 5,
+            "102": 5
+          },
+          "Branches": []
+        },
+        "Utilities.Response.ModelResponse`1<T> Utilities.Response.ManagerResponse`1::PreconditionRequired(System.String,System.Collections.ObjectModel.Collection`1<T>)": {
+          "Lines": {
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Utilities\\Response\\ModelResponse.cs": {
+      "Utilities.Response.ModelResponse`1": {
+        "System.Net.HttpStatusCode Utilities.Response.ModelResponse`1::get_CodigoRespuesta()": {
+          "Lines": {
+            "22": 13
+          },
+          "Branches": []
+        },
+        "System.String Utilities.Response.ModelResponse`1::get_Mensaje()": {
+          "Lines": {
+            "27": 7
+          },
+          "Branches": []
+        },
+        "System.Int32 Utilities.Response.ModelResponse`1::get_CodigoTransaccion()": {
+          "Lines": {
+            "32": 7
+          },
+          "Branches": []
+        },
+        "System.Collections.ObjectModel.Collection`1<T> Utilities.Response.ModelResponse`1::get_Data()": {
+          "Lines": {
+            "37": 14
+          },
+          "Branches": []
+        },
+        "System.DateTime Utilities.Response.ModelResponse`1::get_Date()": {
+          "Lines": {
+            "42": 0
+          },
+          "Branches": []
+        },
+        "Utilities.Secutity.AuthorizationToken Utilities.Response.ModelResponse`1::get_Token()": {
+          "Lines": {
+            "52": 7
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Utilities\\Functions\\JsonSerializer.cs": {
+      "Utilities.Functions.JsonSerializer": {
+        "System.String Utilities.Functions.JsonSerializer::SerializeEntity(T)": {
+          "Lines": {
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0
+          },
+          "Branches": []
+        },
+        "T Utilities.Functions.JsonSerializer::DeserializeObject(System.String)": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "27": 0
+          },
+          "Branches": []
+        },
+        "Newtonsoft.Json.Linq.JObject Utilities.Functions.JsonSerializer::DeserializeString(System.String)": {
+          "Lines": {
+            "33": 0,
+            "34": 0,
+            "35": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Pruebas DevOps\\Neoris\\Test\\DevOps_Exercise_Neoris\\Utilities\\Configuration\\AppSettings.cs": {
+      "Utilities.Configuration.AppSettings": {
+        "Utilities.Configuration.AppSettings Utilities.Configuration.AppSettings::get_Instance()": {
+          "Lines": {
+            "20": 13
+          },
+          "Branches": []
+        },
+        "System.String Utilities.Configuration.AppSettings::get_Environment()": {
+          "Lines": {
+            "25": 0
+          },
+          "Branches": []
+        },
+        "System.String Utilities.Configuration.AppSettings::get_SecretKey()": {
+          "Lines": {
+            "30": 0
+          },
+          "Branches": []
+        },
+        "System.String Utilities.Configuration.AppSettings::get_SecretName()": {
+          "Lines": {
+            "35": 0
+          },
+          "Branches": []
+        },
+        "System.String Utilities.Configuration.AppSettings::get_ApiKey()": {
+          "Lines": {
+            "40": 0
+          },
+          "Branches": []
+        },
+        "System.String Utilities.Configuration.AppSettings::get_ApplicationJwtKey()": {
+          "Lines": {
+            "45": 6
+          },
+          "Branches": []
+        },
+        "System.Int32 Utilities.Configuration.AppSettings::get_MinutesExpirationTime()": {
+          "Lines": {
+            "50": 6
+          },
+          "Branches": []
+        },
+        "System.String Utilities.Configuration.AppSettings::get_ApplicationMethodEncrypt()": {
+          "Lines": {
+            "55": 0
+          },
+          "Branches": []
+        },
+        "System.Security.Claims.ClaimsIdentity Utilities.Configuration.AppSettings::get_ClaimsPrincipal()": {
+          "Lines": {
+            "60": 0
+          },
+          "Branches": []
+        },
+        "System.Void Utilities.Configuration.AppSettings::.ctor()": {
+          "Lines": {
+            "15": 3
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
