@@ -56,7 +56,7 @@ UnitTest:
     tags:
         - DevOps
     script: 
-        - dotnet restore ./Services.sln 
+        - dotnet restore
         - dotnet test -c Release ./UnitTest/UnitTest.csproj 
             /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura" /p:CoverletOutput="./TestResults/" --logger trx --results-directory ./testresults
         # - |-
@@ -67,7 +67,7 @@ UnitTest:
         #     reportgenerator -reports:'../coverage.cobertura.xml' -targetdir:'CoverageReports' -reporttypes:'Cobertura';
     artifacts:
         paths:
-            - CoverageReports/Cobertura.xml
+            - ./UnitTest/TestResults/coverage.cobertura.xml
 
 DockerBuild_Core:
     image: docker:latest
@@ -110,6 +110,7 @@ SonarScanner:
     tags:
         - DevOps
     script: 
+        - ls UnitTest/TestResults
         - "apt-get update"
         - "apt-get install --yes openjdk-11-jre"
         - "dotnet tool install --global dotnet-sonarscanner"
@@ -117,6 +118,7 @@ SonarScanner:
         - "dotnet sonarscanner begin 
             /k:\"dev1417_neoris_backend_AYUG5UunpBPtNSjZ3ZSP\" 
             /d:sonar.login=\"$SONAR_TOKEN\" 
+            /d:sonar.cs.opencover.reportsPaths=\"UnitTest/TestResults/coverage.cobertura.xml\"
             /d:\"sonar.host.url=$SONAR_HOST_URL\" "
         - "dotnet build"
         - "dotnet sonarscanner end /d:sonar.login=\"$SONAR_TOKEN\""
